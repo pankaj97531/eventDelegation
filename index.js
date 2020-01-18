@@ -17,10 +17,27 @@ document.getElementById("addButton").addEventListener('click',function(){
 });
 
 document.getElementById("parentul").addEventListener("click",function(e){
-		//console.log(e.toElement.className);
+		//console.log(e.toElement.parentElement);
+		//var innerHTMLli = e.toElement.parentElement.innerHTML;
+		//var getInnerHtml = stripHtml(innerHTMLli).replace('Delete','');
+		var getIdElement =  e.toElement.parentElement;
+//		console.log(this.childNodes);
+		console.log(getIdElement.getAttribute('id'));
 		if(e.toElement.className=='deletebtn'){
-			e.toElement.parentElement.remove()
+			var innerHTMLli = e.toElement.parentElement.innerHTML;
+			//var outerHTMLBtn = e.toElement.outerHTML;
+			e.toElement.remove();
+
+			console.log(e);
+			//e.toElement.parentElement.remove();
 		}
 		//if(e.toElement.)
 		//if(e.parent)
 });
+
+function stripHtml(html)
+{
+   var tmp = document.createElement("DIV");
+   tmp.innerHTML = html;
+   return tmp.textContent || tmp.innerText || "";
+}
